@@ -13,7 +13,7 @@ PLACEHOLDER_TEXT = "Enter your markdown content here..."
 # Set the overall interface height and button height
 INTERFACE_HEIGHT = 312
 BUTTON_HEIGHT = 30
-BUFFER = 10
+BUFFER = 20
 
 def calculate_text_height():
     """
