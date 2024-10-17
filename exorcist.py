@@ -1,34 +1,57 @@
 # Requires the 'pillow' library for handling images
-# pip install pillow
+# Requires the 'pygame' library for playing MIDI files
+# pip install pillow pygame
 
 import os
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
+import pygame  # For playing the MIDI file
 
 LAST_USED_FILE = "last_used_file.txt"  # File to store the path of the last markdown file
-
-PLACEHOLDER_TEXT = "Enter your markdown content here..."
-
-# Set the overall interface height and button height
+PLACEHOLDER_TEXT = "BEGONE, FOUL SPIRIT!"  # Placeholder text for the text field
 INTERFACE_HEIGHT = 312
 BUTTON_HEIGHT = 30
 BUFFER = 20
 
+# Initialize the Pygame mixer to handle sound
+pygame.mixer.init()
+
+# Track if the sound is currently muted
+is_muted = False
+
+def play_midi():
+    """Play the 'halloween - the exorcist.mid' file located in the script folder."""
+    midi_path = os.path.join(script_dir, "halloween - the exorcist.mid")
+    if os.path.exists(midi_path):
+        pygame.mixer.music.load(midi_path)
+        pygame.mixer.music.play(-1)  # Loop the MIDI file indefinitely
+    else:
+        messagebox.showerror("MIDI Error", f"Could not find the MIDI file: {midi_path}")
+
+def toggle_sound():
+    """Toggle sound on and off, and update the mute button icon."""
+    global is_muted
+    if is_muted:
+        pygame.mixer.music.unpause()
+        mute_button.config(image=sound_on_icon)
+    else:
+        pygame.mixer.music.pause()
+        mute_button.config(image=sound_off_icon)
+    is_muted = not is_muted
+
+def close_app():
+    """Close the application."""
+    root.quit()
+
 def calculate_text_height():
-    """
-    Calculate the height of the text field based on the interface height, button height, and buffer.
-    """
+    """Calculate the height of the text field based on the interface height, button height, and buffer."""
     available_height = INTERFACE_HEIGHT - BUTTON_HEIGHT - BUFFER
-    # Approximate line height for text widget (varies with font size, let's assume ~20 pixels per line)
     line_height = 20
     return available_height // line_height
 
 def load_last_file():
-    """
-    Load the path of the last used markdown file from a text file.
-    If the file or path doesn't exist, return None.
-    """
+    """Load the path of the last used markdown file from a text file."""
     if os.path.exists(LAST_USED_FILE):
         with open(LAST_USED_FILE, "r") as file:
             path = file.read().strip()
@@ -37,16 +60,12 @@ def load_last_file():
     return None
 
 def save_last_file(path):
-    """
-    Save the given markdown file path to the last used file.
-    """
+    """Save the given markdown file path to the last used file."""
     with open(LAST_USED_FILE, "w") as file:
         file.write(path)
 
 def select_markdown_file():
-    """
-    Opens a file dialog for the user to select a markdown file.
-    """
+    """Opens a file dialog for the user to select a markdown file."""
     file_path = filedialog.askopenfilename(
         title="Select Markdown File", 
         filetypes=(("Markdown Files", "*.md"), ("All Files", "*.*"))
@@ -59,41 +78,33 @@ def select_markdown_file():
         return None
 
 def save_to_markdown():
-    """
-    Append the text from the text field to the markdown file.
-    """
+    """Append the text from the text field to the markdown file."""
     global markdown_file
     if markdown_file is None:
         markdown_file = select_markdown_file()
     if markdown_file:
-        text = text_field.get("1.0", "end-1c").strip() + "\n"  # Add a newline at the end
+        text = text_field.get("1.0", "end-1c").strip() + "\n"
         if text.strip() != PLACEHOLDER_TEXT:  # Don't save the placeholder text
-            with open(markdown_file, "a") as file:  # Use "a" mode to append
+            with open(markdown_file, "a") as file:
                 file.write(text)
-        
-        # Clear the text field after saving
         text_field.delete("1.0", tk.END)
         text_field.insert("1.0", PLACEHOLDER_TEXT)
-        text_field.config(fg="gray")  # Reset placeholder color
+        text_field.config(fg="gray")
     else:
         messagebox.showerror("File Error", "Unable to save, no file selected.")
 
 def clear_placeholder(event):
-    """
-    Clear the placeholder text when the user starts typing.
-    """
+    """Clear the placeholder text when the user starts typing."""
     if text_field.get("1.0", "end-1c") == PLACEHOLDER_TEXT:
         text_field.delete("1.0", tk.END)
-        text_field.config(fg="white")  # Change to white font color when user types
+        text_field.config(fg="white")
 
 # Create the main application window
 root = tk.Tk()
-root.title("Markdown Saver")
-
-# Set the window resolution to 1000x312 pixels
+root.title("BRAIN EXORCISM")
 root.geometry("1000x312")
 
-# Load the background image using the absolute path
+# Load the background image
 script_dir = os.path.dirname(os.path.abspath(__file__))
 bg_image_path = os.path.join(script_dir, "bg.png")
 
@@ -108,24 +119,39 @@ try:
     # Display the background image on the canvas
     canvas.create_image(0, 0, image=bg_photo, anchor="nw")
 
-    # Calculate text field height based on available space
+    # Calculate text field height
     text_height = calculate_text_height()
 
-    # Create a text field on the canvas (Text widget) for typing
-    text_field = tk.Text(root, height=text_height, width=70, bg="black", fg="gray", insertbackground="white")  # Adjust width
-    text_field.insert("1.0", PLACEHOLDER_TEXT)  # Insert placeholder text
-    text_field.bind("<FocusIn>", clear_placeholder)  # Bind to focus event for clearing placeholder
+    # Create a text field
+    text_field = tk.Text(root, height=text_height, width=70, bg="black", fg="gray", insertbackground="white")
+    text_field.insert("1.0", PLACEHOLDER_TEXT)
+    text_field.bind("<FocusIn>", clear_placeholder)
+    canvas.create_window(680, (INTERFACE_HEIGHT - BUTTON_HEIGHT) // 2, window=text_field, anchor="center")
 
-    # Set the text box starting at exactly 380px on the x-axis
-    canvas.create_window(680, (INTERFACE_HEIGHT - BUTTON_HEIGHT) // 2, window=text_field, anchor="center")  # Centered at 380px, width roughly 600px
-
-    # Create a save button on the canvas to save the text into the markdown file
-    save_button = tk.Button(root, text="Save to Markdown", command=save_to_markdown, bg="black", fg="white", width=70)
-    # Set the y value to 295
-    canvas.create_window(680, INTERFACE_HEIGHT - (BUTTON_HEIGHT // 2) - BUFFER, window=save_button, anchor="center")  # Align it with the text field
+    # Create a save button
+    save_button = tk.Button(root, text="EXORCISE!!!", command=save_to_markdown, bg="black", fg="white", width=70)
+    canvas.create_window(680, INTERFACE_HEIGHT - (BUTTON_HEIGHT // 2) - BUFFER, window=save_button, anchor="center")
 
     # Load the last used markdown file
     markdown_file = load_last_file()
+
+    # Play the MIDI file
+    play_midi()
+
+    # Load the close button image and create the button
+    close_icon_path = os.path.join(script_dir, "icon_close.png")
+    close_icon = ImageTk.PhotoImage(Image.open(close_icon_path).resize((24, 24)))
+    close_button = tk.Button(root, image=close_icon, command=close_app, bg="black", borderwidth=0)
+    canvas.create_window(970, 4, window=close_button, anchor="ne")
+
+    # Load the sound toggle button images and create the button
+    sound_on_icon_path = os.path.join(script_dir, "icon_sound_on.png")
+    sound_off_icon_path = os.path.join(script_dir, "icon_sound_off.png")
+    sound_on_icon = ImageTk.PhotoImage(Image.open(sound_on_icon_path).resize((24, 24)))
+    sound_off_icon = ImageTk.PhotoImage(Image.open(sound_off_icon_path).resize((24, 24)))
+
+    mute_button = tk.Button(root, image=sound_on_icon, command=toggle_sound, bg="black", borderwidth=0)
+    canvas.create_window(940, 4, window=mute_button, anchor="ne")
 
 except FileNotFoundError:
     messagebox.showerror("File Error", f"Could not find the background image: {bg_image_path}")
