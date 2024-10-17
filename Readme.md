@@ -1,4 +1,4 @@
-This is an ADHD assistance too to provide an avenue to write down random thoughts to Obsidian, without then seeing the other notes to then become distracted.
+This is an ADHD assistance tool to provide an avenue to write down random thoughts to Obsidian, without then seeing the other notes to then become distracted.
 First run you will define the location of the target markdown file.
 
 Styled to look/sound like an old keygen.
