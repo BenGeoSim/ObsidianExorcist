@@ -18,7 +18,11 @@ BUFFER = 20
 pygame.mixer.init()
 
 # Track if the sound is currently muted
-is_muted = False
+is_muted = True  # Start with the sound muted
+
+# Track mouse position for dragging the window
+x_offset = 0
+y_offset = 0
 
 def play_midi():
     """Play the 'halloween - the exorcist.mid' file located in the script folder."""
@@ -26,6 +30,7 @@ def play_midi():
     if os.path.exists(midi_path):
         pygame.mixer.music.load(midi_path)
         pygame.mixer.music.play(-1)  # Loop the MIDI file indefinitely
+        pygame.mixer.music.pause()  # Start the sound muted (paused)
     else:
         messagebox.showerror("MIDI Error", f"Could not find the MIDI file: {midi_path}")
 
@@ -99,10 +104,29 @@ def clear_placeholder(event):
         text_field.delete("1.0", tk.END)
         text_field.config(fg="white")
 
+def on_mouse_press(event):
+    """Record the offset when the mouse button is pressed."""
+    global x_offset, y_offset
+    x_offset = event.x
+    y_offset = event.y
+
+def on_mouse_drag(event):
+    """Drag the window using the mouse."""
+    x = event.x_root - x_offset
+    y = event.y_root - y_offset
+    root.geometry(f"+{x}+{y}")
+
 # Create the main application window
 root = tk.Tk()
 root.title("BRAIN EXORCISM")
+
+# Remove the title bar and make the window borderless
+root.overrideredirect(True)
 root.geometry("1000x312")
+
+# Bind the mouse events to enable dragging
+root.bind("<Button-1>", on_mouse_press)  # When left-click is pressed
+root.bind("<B1-Motion>", on_mouse_drag)  # When the left-click is held and dragged
 
 # Load the background image
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -150,7 +174,8 @@ try:
     sound_on_icon = ImageTk.PhotoImage(Image.open(sound_on_icon_path).resize((24, 24)))
     sound_off_icon = ImageTk.PhotoImage(Image.open(sound_off_icon_path).resize((24, 24)))
 
-    mute_button = tk.Button(root, image=sound_on_icon, command=toggle_sound, bg="black", borderwidth=0)
+    # Set the initial state of the mute button to show sound as off (muted)
+    mute_button = tk.Button(root, image=sound_off_icon, command=toggle_sound, bg="black", borderwidth=0)
     canvas.create_window(940, 4, window=mute_button, anchor="ne")
 
 except FileNotFoundError:
