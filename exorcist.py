@@ -26,7 +26,7 @@ y_offset = 0
 
 def play_midi():
     """Play the 'halloween - the exorcist.mid' file located in the script folder."""
-    midi_path = os.path.join(script_dir, "halloween - the exorcist.mid")
+    midi_path = os.path.join(script_dir, "theme2.mid")
     if os.path.exists(midi_path):
         pygame.mixer.music.load(midi_path)
         pygame.mixer.music.play(-1)  # Loop the MIDI file indefinitely
