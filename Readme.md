@@ -9,6 +9,8 @@ First run you will define the location of the target markdown file.
 
 Styled to look/sound like an old keygen.
 
+I will likely create a executable version at some point soon.
+
 ![interface_preview](https://github.com/user-attachments/assets/56af72bc-79f3-446d-ac33-21758c5e14cf)
 
 ## Installation Instructions
@@ -52,7 +54,7 @@ pip3 install tkinter
 
 **Steps to Run the Script**
 
-This is launched from commandline so:
+This is launched from "command line" so:
 1) Navigate to the project directory: Open a terminal (Command Prompt on Windows, Terminal on macOS/Linux) and navigate to the folder where your script is located. 
 2) You can then launch the application from there.
 
