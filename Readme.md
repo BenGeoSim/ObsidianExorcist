@@ -2,6 +2,14 @@
 ## An ADHD Assistance Tool for brain dumping.
 ![interface_preview](./preview.gif)
 ### Now with a second theme, and multiple audio tracks. :imp:
+<details>
+<summary>Theme1</summary>
+![interface_preview](./interface_preview.png)
+</details>
+<details>
+<summary>Theme2</summary>
+![interface_preview](./interface_preview2.png)
+</details>
 
 **Disclaimer:**
 I do not claim ownership of any intellectual properties referenced in this content. This content is created purely to pay tribute, and aims to be transformative through the use of humor. It is not intended to reflect negatively on the original works or their creators in any way. Hence this is offered for free.
