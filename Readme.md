@@ -25,24 +25,25 @@ Styled to look/sound like an old keygen.
 
 **To verify installation, open the Command Prompt and type:**
 
-Windows:
+#### Windows:
 ```
 python --version
 ```
-OSX: (untested)
+#### OSX: (untested)
 ```
 python3 --version
 ```
 
-**To install the required libraries, run the following command in CMD prompt:**
+### 2. To install the required libraries, 
+*run the following command in CMD prompt/Terminal:*
 
-Windows:
+#### Windows:
 ```
 pip install pillow
 pip install pygame
 pip install tkinter
 ```
-OSX: (untested)
+#### OSX: (untested)
 ```
 pip3 install pillow
 pip3 install pygame
@@ -51,23 +52,15 @@ pip3 install tkinter
 
 **Steps to Run the Script**
 
-Navigate to the project directory: Open a terminal (Command Prompt on Windows, Terminal on macOS/Linux) and navigate to the folder where your script is located. You can do this with the cd command:
+Navigate to the project directory: Open a terminal (Command Prompt on Windows, Terminal on macOS/Linux) and navigate to the folder where your script is located. You can then launch the application from there.
 
-Windows/OSX: (untested)
+#### Windows:
 ```
-cd path/to/your/project
-```
-
-**To Run the Program:**
-
-Windows:
-```
+cd path/to/your/install
 python exorcist.py
 ```
-OSX: (untested)
+#### OSX: (untested)
 ```
+cd path/to/your/install
 python3 exorcist.py
 ```
-
-
-
