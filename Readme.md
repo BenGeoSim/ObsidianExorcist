@@ -1,4 +1,5 @@
-# ObsidianExorcist: An ADHD Assistance Tool for brain dumping.
+# ObsidianExorcist
+## An ADHD Assistance Tool for brain dumping.
 
 **Disclaimer:**
 I do not claim ownership of any intellectual properties referenced in this content. This content is created purely to pay tribute, and aims to be transformative through the use of humor. It is not intended to reflect negatively on the original works or their creators in any way. Hence this is offered for free.
