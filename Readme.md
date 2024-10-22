@@ -9,7 +9,7 @@ First run you will define the location of the target markdown file.
 
 Styled to look/sound like an old keygen.
 
-I will likely create a executable version at some point soon.
+I will likely create a executable version at some point soon. Additionally a "Batch File" for automation will also be handy.
 
 ![interface_preview](https://github.com/user-attachments/assets/56af72bc-79f3-446d-ac33-21758c5e14cf)
 
@@ -37,7 +37,7 @@ python3 --version
 ```
 
 ### 2. To install the required libraries, 
-*run the following command in CMD prompt/Terminal:*
+**run the following commands in CMD prompt/Terminal:**
 
 #### Windows:
 ```
@@ -52,9 +52,9 @@ pip3 install pygame
 pip3 install tkinter
 ```
 
-**Steps to Run the Script**
+### 3. Run the Program
 
-This is launched from "command line" so:
+**This application is launched from "command line" so:**
 1) Navigate to the project directory: Open a terminal (Command Prompt on Windows, Terminal on macOS/Linux) and navigate to the folder where your script is located. 
 2) You can then launch the application from there.
 
