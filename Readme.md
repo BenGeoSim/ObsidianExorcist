@@ -1,5 +1,6 @@
 # ObsidianExorcist
 ## An ADHD Assistance Tool for brain dumping.
+![interface_preview](https://github.com/user-attachments/assets/56af72bc-79f3-446d-ac33-21758c5e14cf)
 
 **Disclaimer:**
 I do not claim ownership of any intellectual properties referenced in this content. This content is created purely to pay tribute, and aims to be transformative through the use of humor. It is not intended to reflect negatively on the original works or their creators in any way. Hence this is offered for free.
@@ -8,14 +9,13 @@ I recommend renting or purchasing this iconic piece of cinema.
 This is an ADHD assistance tool to provide an avenue to write down random thoughts to Obsidian, without then seeing the other notes to then become distracted. 
 As you will surmise, that is a problem for me. I am hyper focused by *new shiny idea*, so I write things down so I can think *"Okay it's safe and sound, accept and move on"*.
 Unfortunately my brain is 70% Border Collie, so then runs off in another direction.
+![Happy Dog Pup GIF](./dog-crazy.gif)
 
 First run you will define the location of the target markdown file.
 
 Styled to look/sound like an old keygen. It even has repetitive sound track, off by default.
 
 I will likely create a executable version at some point soon.
-
-![interface_preview](https://github.com/user-attachments/assets/56af72bc-79f3-446d-ac33-21758c5e14cf)
 
 ## Installation Instructions
 
