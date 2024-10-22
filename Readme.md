@@ -6,8 +6,8 @@ I do not claim ownership of any intellectual properties referenced in this conte
 I recommend renting or purchasing this iconic piece of cinema.
 
 This is an ADHD assistance tool to provide an avenue to write down random thoughts to Obsidian, without then seeing the other notes to then become distracted. 
-As you will surmise, that is a problem for me. I am hyper focused by *new shiny idea*, so I write things down so I can think "Okay it's safe and sound, accept and move on".
-Unfortunately I then spot another rabbit to mentally chase.
+As you will surmise, that is a problem for me. I am hyper focused by *new shiny idea*, so I write things down so I can think *"Okay it's safe and sound, accept and move on"*.
+Unfortunately my brain is 70% Border Collie, so then runs off in another direction.
 
 First run you will define the location of the target markdown file.
 
