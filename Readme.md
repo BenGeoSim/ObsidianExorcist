@@ -29,6 +29,7 @@ Styled to look/sound like an old keygen. It even has repetitive sound track, off
 ## ToDo
 1. Executable version (for Windows at least)
 2. Organise files into sub directories.
+3. Add "bad" anime theme, I am thinking Samurai X
 
 ## Installation Instructions
 
