@@ -21,11 +21,11 @@ Styled to look/sound like an old keygen.
 3. Choose the recommended installation options and complete the installation.
 
 **To verify installation, open the Command Prompt and type:**
-python --version
+  python --version
 
 **To install it, run the following command in CMD prompt:**
-pip install pillow
+  pip install pillow
 
 **Steps to Run the Script**
 Navigate to the project directory: Open a terminal (Command Prompt on Windows, Terminal on macOS/Linux) and navigate to the folder where your script is located. You can do this with the cd command:
-cd path/to/your/project
+  cd path/to/your/project
