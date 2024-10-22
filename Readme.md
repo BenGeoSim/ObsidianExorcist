@@ -3,12 +3,12 @@
 ![interface_preview](./preview.gif)
 ### Now with a second theme, and multiple audio tracks. :imp:
 <details>
-<summary>Theme1</summary>
+<summary>Closer look at original Exorcist Theme</summary>
 
 ![interface_preview](./interface_preview.png)
 </details>
 <details>
-<summary>Theme2</summary>
+<summary>Closer new Matrix Theme</summary>
 
 ![interface_preview](./interface_preview2.png)
 </details>
