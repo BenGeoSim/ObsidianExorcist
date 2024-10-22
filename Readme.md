@@ -26,7 +26,9 @@ First run you will define the location of the target markdown file.
 
 Styled to look/sound like an old keygen. It even has repetitive sound track, off by default.
 
-I will likely create a executable version at some point soon.
+## ToDo
+1. Executable version (for Windows at least)
+2. Organise files into sub directories.
 
 ## Installation Instructions
 
