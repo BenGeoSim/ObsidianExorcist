@@ -52,7 +52,9 @@ pip3 install tkinter
 
 **Steps to Run the Script**
 
-Navigate to the project directory: Open a terminal (Command Prompt on Windows, Terminal on macOS/Linux) and navigate to the folder where your script is located. You can then launch the application from there.
+This is launched from commandline so:
+1) Navigate to the project directory: Open a terminal (Command Prompt on Windows, Terminal on macOS/Linux) and navigate to the folder where your script is located. 
+2) You can then launch the application from there.
 
 #### Windows:
 ```
