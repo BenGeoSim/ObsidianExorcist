@@ -8,7 +8,7 @@
 ![interface_preview](./interface_preview.png)
 </details>
 <details>
-<summary>Closer new Matrix Theme</summary>
+<summary>Closer look at the new Matrix Theme</summary>
 
 ![interface_preview](./interface_preview2.png)
 </details>
