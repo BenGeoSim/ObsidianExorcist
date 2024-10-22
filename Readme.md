@@ -4,10 +4,12 @@
 ### Now with a second theme, and multiple audio tracks. :imp:
 <details>
 <summary>Theme1</summary>
+
 ![interface_preview](./interface_preview.png)
 </details>
 <details>
 <summary>Theme2</summary>
+
 ![interface_preview](./interface_preview2.png)
 </details>
 
